@@ -1,7 +1,6 @@
 .wrapper {
-  width: 100vw;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,61 +11,52 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-.wrapper .boxRegister {
-  width: 30vw;
-  height: 50vh;
+.wrapper .registerForm {
+  width: 500px;
+  height: 80%;
   background-color: rgb(139, 139, 167);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border-radius: 5px;
-}
-.wrapper .boxRegister form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.wrapper .registerForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
-  margin: 30px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.wrapper .boxRegister form input {
+.wrapper .registerForm form input {
   width: 250px;
   height: 30px;
+  margin: 10px;
   border-radius: 10px;
   border-color: transparent;
 }
-.wrapper .boxRegister form span {
+.wrapper .registerForm form span {
   font-size: 18px;
   font-weight: 600;
 }
-.wrapper .boxRegister form button {
-  width: 180px;
-  height: 40px;
-  border-radius: 10px;
-  border-color: transparent;
+.wrapper .registerForm form button {
+  width: 350px;
+  height: 20px;
+  margin-top: 8%;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 5%;
 }
-.wrapper .boxRegister form span.err {
+.wrapper .registerForm form span.err {
   color: red;
-}/*# sourceMappingURL=SignIn.module.css.map */
+}/*# sourceMappingURL=Register.module.css.map */

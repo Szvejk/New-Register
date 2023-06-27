@@ -5,6 +5,10 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema/schema';
 import { UserList } from '../App';
+import { Link } from 'react-router-dom';
+import UsersLogged from '../sectionUsersLogged/UsersLogged';
+import { useNavigate } from 'react-router-dom';
+
 type FormValues = {
 	email: string;
 	password: string;
@@ -27,13 +31,17 @@ const SignIn = ({ userList }: Props) => {
 	});
 
 	console.log(errors);
+	const navigate = useNavigate();
 
 	const onSubmit = (data: FormValues) => {
 		console.log(data);
 		const findUser = userList.find((el) => el.email === data.email);
 
 		if (findUser) {
-			localStorage.setItem('isLoggin', 'true');
+			if (findUser.password === data.password) {
+				localStorage.setItem('isLoggin', 'true');
+				navigate('/logged');
+			}
 		}
 	};
 
@@ -79,7 +87,12 @@ const SignIn = ({ userList }: Props) => {
 							{errors.passwordConfirmation.message}{' '}
 						</span>
 					)}
-					<button type='submit'>Zarejestruj sie</button>
+
+					<button type='submit'>Zaloguj sie</button>
+
+					<Link to='/register' className={styles.registerButton}>
+						<button type='submit'>Zarejestruj sie</button>
+					</Link>
 				</form>
 			</div>
 		</div>
@@ -87,3 +100,5 @@ const SignIn = ({ userList }: Props) => {
 };
 
 export default SignIn;
+
+// navigate react router
