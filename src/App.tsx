@@ -1,12 +1,21 @@
-import React from 'react'
-import styles from './App.module.scss'
-import SignIn from './Sign/SignIn'
-const App = () => {
-  return (
-    <div>
-      <SignIn />
-    </div>
-  )
-}
+import React, { useState } from 'react';
+import styles from './App.module.scss';
+import SignIn from './Sign/SignIn';
 
-export default App
+export type UserList = {
+	email: string;
+	password: string;
+	passwordConfirmation: string;
+};
+
+const App = () => {
+	const [userList, setUserList] = useState<UserList[]>([]);
+
+	return (
+		<div>
+			<SignIn userList={userList} />
+		</div>
+	);
+};
+
+export default App;

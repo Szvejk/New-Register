@@ -1,0 +1,49 @@
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.boxRegister {
+		width: 30vw;
+		height: 50vh;
+		background-color: rgb(73, 74, 117);
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		flex-direction: column;
+        border-radius:5px;
+		form {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 10px;
+			margin: 30px;
+			input {
+				width: 250px;
+				height: 30px;
+                border-radius: 10px;
+                border-color: transparent;
+			}
+			span {
+				font-size: 18px;
+				font-weight: 600;
+			}
+			button {
+				width: 180px;
+				height: 40px;
+				border-radius: 10px;
+				border-color: transparent;
+				font-size: 14px;
+				text-transform: uppercase;
+				font-weight: 600;
+                margin-top: 5%;
+			}
+			span.err {
+				color: red;
+			}
+		}
+	}
+}
