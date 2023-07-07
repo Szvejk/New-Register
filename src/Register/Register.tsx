@@ -5,7 +5,7 @@ import React, { useRef, useEffect } from 'react';
 import { schemaRegister } from './schemaRegister';
 import { UserList } from '../App';
 import { Link } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
 type RegisterValues = {
 	email: string;
 	name: string;
@@ -21,6 +21,12 @@ interface Props {
 }
 
 const Register = ({ userList }: Props) => {
+	const notify = () =>
+		toast.error('Takie konto już istnieje', {
+			position: toast.POSITION.TOP_CENTER,
+			theme: 'dark',
+			autoClose: false,
+		});
 	const {
 		control,
 		handleSubmit,
@@ -33,12 +39,21 @@ const Register = ({ userList }: Props) => {
 	console.log(errors);
 
 	const onSubmit = (data: RegisterValues) => {
-		console.log(data);
-		userList.push(data);
+		if (userList.includes(data)) {
+			return;
+		} else {
+			console.log(data);
+			userList.push(data);
+		}
 	};
 
 	return (
 		<div>
+			<>
+				{' '}
+				<button onClick={notify}>Notify !</button>
+				<ToastContainer limit={1} />{' '}
+			</>
 			<div className={styles.wrapper}>
 				<div className={styles.registerForm}>
 					<form onSubmit={handleSubmit(onSubmit)}>

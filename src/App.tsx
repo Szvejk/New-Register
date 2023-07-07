@@ -16,6 +16,7 @@ interface UserData {
 	email: string;
 	gender: string;
 	cell: number;
+
 	name: {
 		title: string;
 		first: string;
@@ -27,7 +28,7 @@ const App = () => {
 	const [userList, setUserList] = useState<UserList[]>([]);
 	const [detailsUser, setdetailsUser] = useState<UserData | null>(null);
 
-	console.log(detailsUser, 'detailss');
+	console.log(detailsUser);
 	return (
 		<Router>
 			<Routes>

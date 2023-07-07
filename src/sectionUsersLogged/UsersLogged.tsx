@@ -37,39 +37,38 @@ const UsersLogged = ({ setdetailsUser }: Props) => {
 			});
 	};
 
-	// if (findUser) {
-	// 	if (findUser.password === data.password) {
-	// 		localStorage.setItem('isLoggin', 'true');
-	// 		navigate('/logged');
-	// 	}
-	// }
+
 
 	return (
-		<div>
-			<SearchInput setQuery={setQuery} />
+		<section className={styles.loggedUserFilter}>
+			<div className={styles.boxSearch}>
+				<SearchInput setQuery={setQuery} />
 
-			{loggedUser
-				? loggedUser
-						.filter(
-							(el) =>
-								el.name.first.toLowerCase().includes(query.toLowerCase()) ||
-								el.name.last.toLowerCase().includes(query.toLowerCase())
-						)
+				{loggedUser
+					? loggedUser
+							.filter(
+								(el) =>
+									el.name.first.toLowerCase().includes(query.toLowerCase()) ||
+									el.name.last.toLowerCase().includes(query.toLowerCase())
+							)
 
-						.map((el, index) => (
-							<div
-								onClick={() => setdetailsUser(el)}
-								key={index}
-								className={styles.placeName}
-							>
-								<Link to='/details'>
-									<button> Details</button>
-								</Link>{' '}
-								{el.name.first} {el.name.last}{' '}
-							</div>
-						))
-				: null}
-		</div>
+							.map((el, index) => (
+								<div key={index} className={styles.placeName}>
+									<Link to='/details'>
+										<button
+											onClick={() => setdetailsUser(el)}
+											className={styles.buttonDetails}
+										>
+											{' '}
+											Details
+										</button>
+									</Link>{' '}
+									{el.name.first} {el.name.last}{' '}
+								</div>
+							))
+					: null}
+			</div>
+		</section>
 	);
 };
 

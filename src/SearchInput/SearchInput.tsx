@@ -10,7 +10,7 @@ const SearchInput = ({ setQuery }: Props) => {
 		<div className={styles.filter}>
 			<input
 				type='text'
-				placeholder='search'
+				placeholder='search...'
 				className={styles.search}
 				onChange={(el) => setQuery(el.target.value)}
 			/>
