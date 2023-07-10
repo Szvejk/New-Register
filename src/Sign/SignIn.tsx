@@ -41,9 +41,6 @@ const SignIn = ({ userList }: Props) => {
 			if (findUser.password === data.password) {
 				localStorage.setItem('isLoggin', 'true');
 				navigate('/logged');
-			} else {
-				localStorage.setItem('isLoggin', 'false');
-				navigate('/');
 			}
 		}
 	};

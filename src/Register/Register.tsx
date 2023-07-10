@@ -40,7 +40,7 @@ const Register = ({ userList }: Props) => {
 
 	const onSubmit = (data: RegisterValues) => {
 		if (userList.includes(data)) {
-			return;
+			notify();
 		} else {
 			console.log(data);
 			userList.push(data);
@@ -49,11 +49,7 @@ const Register = ({ userList }: Props) => {
 
 	return (
 		<div>
-			<>
-				{' '}
-				<button onClick={notify}>Notify !</button>
-				<ToastContainer limit={1} />{' '}
-			</>
+			<ToastContainer limit={1} />{' '}
 			<div className={styles.wrapper}>
 				<div className={styles.registerForm}>
 					<form onSubmit={handleSubmit(onSubmit)}>

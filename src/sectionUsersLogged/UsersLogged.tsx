@@ -4,6 +4,8 @@ import axios from 'axios';
 import SearchInput from '../SearchInput/SearchInput';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { UserList } from '../App';
+
 interface UserData {
 	email: string;
 	gender: string;
@@ -15,11 +17,30 @@ interface UserData {
 	};
 }
 
+type FormValues = {
+	email: string;
+	password: string;
+	passwordConfirmation: string;
+};
+
 interface Props {
 	setdetailsUser: React.Dispatch<React.SetStateAction<UserData | null>>;
 }
 
 const UsersLogged = ({ setdetailsUser }: Props) => {
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		console.log(localStorage.getItem('isLoggin'));
+		if (
+			localStorage.getItem('isLoggin') === 'false' ||
+			localStorage.getItem('isLoggin') === null
+		) {
+			console.log('tests');
+			navigate('/');
+		}
+	}, []);
+
 	useEffect(() => {
 		info();
 	}, []);
@@ -36,8 +57,6 @@ const UsersLogged = ({ setdetailsUser }: Props) => {
 				console.log(err);
 			});
 	};
-
-
 
 	return (
 		<section className={styles.loggedUserFilter}>
